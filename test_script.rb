@@ -1,5 +1,6 @@
 #index action
-require "http://localhost:3000/api/products"
+require "http"
 
-#show action
-require "http://localhost:3000/api/products/1"
+response = HTTP.get("http://localhost:3000/api/products")
+
+pp response.parse
