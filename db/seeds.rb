@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-products = Product.create(
-  [
+# product = Product.create(
+#   [
       # {
 #       # name: "Golf Club", 
 #       # price: 64, 
@@ -37,4 +37,32 @@ products = Product.create(
 #       }
 #   ]
 # )
-    
+
+# image = Image.create(
+#   [
+#     # {
+#     #   url: "https://ssma1221.cafe24.com/img2/2018/07/11/golf/700.jpg",
+#     #   product_id: 5
+#     # }
+#     {
+#       url: "https://en.pimg.jp/028/132/130/1/28132130.jpg",
+#       product_id: 1
+#     },
+#     {
+#       url: "https://media.istockphoto.com/photos/golf-ball-picture-id848607268?k=6&m=848607268&s=612x612&w=0&h=nguHnfz6ixruItNiLM59fXayAGaqzWgFX9-2oJufIvc=",
+#       product_id: 2
+#     },
+#     {
+#     url: "https://media.istockphoto.com/photos/new-wooden-golf-tee-isolated-against-white-picture-id172989428",
+#     product_id: 3
+#     },
+#     {
+#       url: "https://dks.scene7.com/is/image/GolfGalaxy/PAOHNAKHACEDGONM-1?qlt=70&wid=600&fmt=pjpeg",
+#       product_id: 4
+#     },
+#     {
+#     url: "https://cdn3.volusion.com/2fs3o.efnr7/v/vspfiles/photos/ACUSH-TH20APBM-2.jpg?v-cache=1584021220",
+#     product_id: 5
+#     }
+  ]
+)
