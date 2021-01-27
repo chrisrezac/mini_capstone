@@ -21,9 +21,13 @@ class Api::ProductsController < ApplicationController
   end
   
   def show
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
-    render "show.json.jb"
+    if current_user
+      product_id = params[:id]
+      @product = Product.find_by(id: product_id)
+      render "show.json.jb"
+    else 
+      render json: {}, status: :unauthorized
+    end
   end
 
   def create
