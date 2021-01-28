@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_212541) do
+ActiveRecord::Schema.define(version: 2021_01_28_165237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_212541) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "quanity"
+    t.integer "quantity"
     t.integer "product_id"
     t.integer "user_id"
     t.decimal "subtotal", precision: 6, scale: 2
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_01_26_212541) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: true
   end
 
 end
