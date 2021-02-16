@@ -4,22 +4,27 @@ class Api::ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    # if params[:discount]
-    #   @products = @products.where("price < ?", 60)
-    # end
+    if params[:discount]
+      @products = @products.where("price < ?", 60)
+    end
 
-    # if params[:search]
-    #   @products = @products.where("name iLIKE ? OR description iLIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
-    # end
+    if params[:search]
+      @products = @products.where("name iLIKE ? OR description iLIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    end
 
-    # if params[:sort] == "price" && params[:sort_order] == "asc"
-    #   @products = @products.order(:price)
-    # elsif params[:sort] == "price" && params[:sort_order] == "desc"
-    #   @products = @products.order(price: :desc)
-    # else
-    #   @products = @products.order(:id)
-    # end
-    # render "index.json.jb"
+    if params[:sort] == "price" && params[:sort_order] == "asc"
+      @products = @products.order(:price)
+    elsif params[:sort] == "price" && params[:sort_order] == "desc"
+      @products = @products.order(price: :desc)
+    else
+      @products = @products.order(:id)
+    end
+
+    if params[:category]
+      category = Category.find_by("name = ?", params[:category])
+      @products = category.products
+    end
+    render "index.json.jb"
   end
   
   def show
@@ -37,7 +42,8 @@ class Api::ProductsController < ApplicationController
     @product = Product.new(
       name: params[:name],
       price: params[:price],
-      description: params[:description]
+      description: params[:description],
+      supplier_id: params[:supplier_id]
     )
     if @product.save
       render "show.json.jb"
